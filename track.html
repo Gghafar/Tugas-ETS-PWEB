@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lacak Tiket - Helpdesk</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <header class="header">
+         <div class="container header-container">
+            <div class="logo">HELPDESK</div>
+            <nav class="nav-links">
+                <a href="index.html">HOME</a>
+                <a href="track.html" class="active">TICKETS</a>
+                <a href="contact.html">CONTACT</a>
+                <a href="faq.html">FAQ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container main-content page-padding">
+        <h1>Lacak Status Tiket Anda</h1>
+        <p>Masukkan nomor tiket Anda di bawah ini untuk melihat statusnya.</p>
+
+        <div class="ticket-tracker">
+            <div class="form-group">
+                <label for="ticketNumber">Nomor Tiket:</label>
+                <input type="text" id="ticketNumber" name="ticketNumber" placeholder="Contoh: HD-12345">
+            </div>
+            <button id="trackBtn" class="btn-submit">Lacak Status</button>
+
+            <div id="ticketStatusResult" class="ticket-status-result" style="display: none;">
+                <h3>Status Tiket <span id="trackedTicketNumber"></span>:</h3>
+                <p id="statusMessage"></p>
+            </div>
+             <div id="trackError" class="error-message"></div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 White Manchester</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

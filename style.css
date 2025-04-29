@@ -1,0 +1,475 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap'); /* Contoh Font */
+
+/* Variabel Warna (sesuaikan dengan gambar) */
+:root {
+    --primary-color: #00ccff; /* Neon Blue */
+    --primary-color-darker: #00aaff;
+    --background-color-start: #0f0c29;
+    --background-color-end: #302b63;
+    --text-color: #315775;
+    --secondary-text-color: #cccccc;
+    --border-color: rgba(0, 204, 255, 0.5);
+    --block-bg-color: rgba(0, 204, 255, 0.05);
+    --error-color: #ff4d4d;
+    --success-color: #4dff88;
+}
+
+/* Reset Dasar & Global */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    background: linear-gradient(to bottom right, var(--background-color-start), var(--background-color-end));
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Untuk background overlay */
+    overflow-x: hidden; /* Hindari scroll horizontal */
+}
+
+/* Efek Grid Latar (Opsional) */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        linear-gradient(rgba(0, 204, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 204, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-color-darker);
+}
+
+h1, h2 {
+    font-family: 'Orbitron', sans-serif; /* Font judul yang lebih techy */
+    color: var(--primary-color);
+    text-shadow: 0 0 5px var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+p {
+    color: var(--secondary-text-color);
+    margin-bottom: 1rem;
+}
+
+/* Header & Navigasi */
+.header {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 10px rgba(0, 204, 255, 0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-shadow: 0 0 8px var(--primary-color);
+}
+
+.nav-links a {
+    color: var(--secondary-text-color);
+    margin-left: 1.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    padding-bottom: 5px; /* Ruang untuk border bawah */
+    border-bottom: 2px solid transparent; /* Placeholder border */
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary-color);
+    text-shadow: 0 0 3px var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1; /* Agar footer tetap di bawah */
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+.page-padding {
+    padding-top: 3rem;
+}
+
+/* Hero Section (Homepage) */
+.hero {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.search-bar {
+    display: flex;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid var(--border-color);
+    border-radius: 50px; /* Membuat ujung melengkung */
+    overflow: hidden; /* Agar border-radius bekerja */
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 10px rgba(0, 204, 255, 0.1);
+}
+
+.search-bar input {
+    flex-grow: 1;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    background: transparent;
+    color: var(--text-color);
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-bar input::placeholder {
+    color: var(--secondary-text-color);
+    opacity: 0.7;
+}
+
+.search-bar button {
+    background-color: transparent;
+    border: none;
+    color: var(--primary-color);
+    padding: 0 1.5rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.search-bar button:hover {
+    color: var(--primary-color-darker);
+}
+
+/* Feature Blocks (Homepage) */
+.feature-blocks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.feature-block {
+    background-color: var(--block-bg-color);
+    border: 1px solid var(--border-color);
+    padding: 2.5rem 1.5rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    display: block; /* Agar bisa diklik seluruh area */
+    box-shadow: 0 0 15px rgba(0, 204, 255, 0.1);
+}
+
+.feature-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 25px rgba(0, 204, 255, 0.2);
+    border-color: var(--primary-color);
+}
+
+.feature-block i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 8px var(--primary-color);
+}
+
+.feature-block h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: none; /* Hilangkan shadow judul block */
+    color: var(--text-color); /* Warna teks biasa */
+}
+
+.feature-block p {
+    font-size: 0.95rem;
+    margin-bottom: 0; /* Hapus margin bawah paragraf */
+}
+
+/* Form Styling (Contact & Track) */
+.contact-form, .ticket-tracker {
+    max-width: 700px;
+    margin: 2rem auto;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 2.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-text-color);
+    font-weight: 400;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(0, 204, 255, 0.3);
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resize */
+    min-height: 100px;
+}
+
+.btn-submit {
+    background-color: var(--primary-color);
+    color: var(--background-color-start);
+    border: none;
+    padding: 0.9rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block; /* Agar tidak full width */
+}
+
+.btn-submit:hover {
+    background-color: var(--primary-color-darker);
+    transform: scale(1.03);
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+    display: block; /* Agar muncul di baris baru */
+    min-height: 1em; /* Beri ruang walau kosong */
+}
+
+.form-preview {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border: 1px dashed var(--secondary-text-color);
+    border-radius: 5px;
+}
+
+.form-preview h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.form-preview p {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+.form-preview p strong {
+    color: var(--secondary-text-color);
+}
+
+.success-message {
+    color: var(--success-color);
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+
+/* FAQ Accordion */
+.faq-accordion {
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.faq-item {
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    overflow: hidden; /* Agar border-radius bekerja */
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.faq-question {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    padding: 1rem 1.5rem;
+    width: 100%;
+    text-align: left;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: rgba(0, 204, 255, 0.1);
+}
+
+.faq-question i {
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    background-color: rgba(0, 0, 0, 0.2); /* Sedikit beda bg */
+    padding: 0 1.5rem; /* Padding awal 0 */
+}
+
+.faq-answer p {
+    margin-bottom: 1rem;
+     color: var(--secondary-text-color);
+}
+
+.faq-item.active .faq-answer {
+    /* max-height diset besar agar cukup untuk konten */
+    max-height: 300px; /* Sesuaikan jika konten sangat panjang */
+    padding: 1.5rem;
+}
+
+/* Ticket Tracker */
+.ticket-tracker input {
+    margin-bottom: 1rem; /* Jarak antara input dan tombol */
+}
+.ticket-status-result {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: rgba(0, 204, 255, 0.05);
+}
+.ticket-status-result h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+.ticket-status-result p {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 0;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: auto; /* Mendorong footer ke bawah */
+    color: var(--secondary-text-color);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .nav-links {
+        margin-top: 1rem;
+    }
+    .nav-links a {
+        margin: 0 0.7rem;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .feature-blocks {
+        grid-template-columns: 1fr; /* Stack di mobile */
+    }
+    .contact-form, .ticket-tracker, .faq-accordion {
+        padding: 1.5rem;
+    }
+    .faq-question {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+     .logo {
+        font-size: 1.5rem;
+    }
+    .nav-links a {
+        font-size: 0.9rem;
+        margin: 0 0.5rem;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+     .search-bar {
+         border-radius: 5px; /* Lebih cocok di mobile */
+     }
+      .search-bar input, .search-bar button {
+         padding: 0.7rem 1rem;
+         font-size: 0.9rem;
+     }
+     .btn-submit {
+         width: 100%; /* Tombol full width di mobile */
+         padding: 0.8rem 1rem;
+     }
+}

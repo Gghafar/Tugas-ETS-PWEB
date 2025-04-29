@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hubungi Kami - Helpdesk</title>
+    <!-- Pastikan nama file CSS benar -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <header class="header">
+         <div class="container header-container">
+            <div class="logo">HELPDESK</div>
+            <nav class="nav-links">
+                <a href="index.html">HOME</a>
+                <a href="track.html">TICKETS</a>
+                <a href="contact.html" class="active">CONTACT</a>
+                <a href="faq.html">FAQ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container main-content page-padding">
+        <h1>Hubungi Kami</h1>
+        <p>Silakan isi formulir di bawah ini untuk mengirimkan pertanyaan Anda.</p>
+
+        <form id="contactForm" class="contact-form">
+            <div class="form-group">
+                <label for="name">Nama:</label>
+                <!-- ID unik: name -->
+                <input type="text" id="name" name="name" required>
+                <span class="error-message" id="nameError"></span>
+            </div>
+            <div class="form-group">
+                <label for="phone">No. Telepon:</label>
+                <!-- ID unik: phone -->
+                <input type="text" id="phone" name="phone" required placeholder="Contoh: 08123456789">
+                <span class="error-message" id="phoneError"></span>
+            </div>
+            <div class="form-group">
+                <label for="unit">No. Unit:</label>
+                <!-- ID unik: unit -->
+                <input type="text" id="unit" name="unit" required placeholder="Contoh: Tower A / Lantai 10 / No. 1001">
+                <span class="error-message" id="unitError"></span>
+            </div>
+            <div class="form-group">
+                <label for="topic">Topik Pertanyaan:</label>
+                <!-- ID unik: topic -->
+                <select id="topic" name="topic" required>
+                    <option value="">-- Pilih Topik --</option>
+                    <option value="Keuangan">Pembayaran & Keuangan</option>
+                    <option value="Fasilitas">Fasilitas & Penggunaan</option>
+                    <option value="Perbaikan">Perbaikan & Masalah Unit</option>
+                    <option value="Keamanan">Keamanan & Akses</option>
+                    <option value="Tata Tertib">Peraturan & Tata Tertib</option>
+                    <option value="Lainnya">Lainnya</option>
+                </select>
+                <span class="error-message" id="topicError"></span>
+            </div>
+            <div class="form-group">
+                <label for="message">Pesan:</label>
+                 <!-- ID unik: message -->
+                <textarea id="message" name="message" rows="5" required></textarea>
+                <span class="error-message" id="messageError"></span>
+            </div>
+            <button type="submit" class="btn-submit">Kirim Pesan</button>
+        </form>
+
+        <div id="formPreview" class="form-preview" style="display: none;">
+            <h3>Preview Pesan Anda:</h3>
+            <p><strong>Nama:</strong> <span id="previewName"></span></p>
+             <!-- ID unik untuk preview -->
+            <p><strong>No. Telepon:</strong> <span id="previewPhone"></span></p>
+            <p><strong>No. Unit:</strong> <span id="previewUnit"></span></p>
+            <p><strong>Topik:</strong> <span id="previewTopic"></span></p>
+            <p><strong>Pesan:</strong></p>
+            <p id="previewMessage"></p>
+            <p class="success-message">Pesan Anda telah berhasil dikirim.</p>
+        </div>
+         <div id="generalError" class="error-message"></div>
+
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 White Manchester</p>
+    </footer>
+
+    <!-- Pastikan nama file JS benar -->
+    <script src="script.js"></script>
+</body>
+</html>
